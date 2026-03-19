@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "theme-toggle-v5",
+    "slug": "theme-toggle-v5",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "theme-toggle-v5",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "platforms": ["ios", "android", "web"]
+  }
+}
