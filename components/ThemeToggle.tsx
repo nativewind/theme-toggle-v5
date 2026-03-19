@@ -30,13 +30,13 @@ export default function ThemeToggle() {
   return (
     <Pressable
       onPress={toggle}
-      className="relative h-12 w-24 flex-row items-center justify-between rounded-full bg-secondary p-1"
+      className="relative h-12 w-24 flex-row items-center justify-between rounded-full bg-gray-200 p-1 dark:bg-gray-700"
     >
       <Icon name="sun" />
       <Icon name="moon" />
       <Animated.View
         style={animatedStyle}
-        className="absolute h-10 w-10 items-center justify-center rounded-full bg-background"
+        className="absolute h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-gray-900"
       />
     </Pressable>
   );

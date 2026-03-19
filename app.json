@@ -7,6 +7,16 @@
     "scheme": "theme-toggle-v5",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "platforms": ["ios", "android", "web"]
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "plugins": [
+      "expo-router"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.danstepanov.theme-toggle-v5"
+    }
   }
 }
