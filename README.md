@@ -2,35 +2,33 @@
 
 A minimal example of light/dark theme switching with [Nativewind v5](https://www.nativewind.dev/v5) and Tailwind CSS v4.
 
-https://github.com/user-attachments/assets/placeholder.mp4
-
 ## How it works
 
-Nativewind v5 uses `prefers-color-scheme` media queries under the hood. Toggle the theme by calling `Appearance.setColorScheme()` from React Native, and all `dark:` variants and theme colors update automatically.
+Nativewind v5 uses `prefers-color-scheme` media queries under the hood. Toggle the theme by calling `Appearance.setColorScheme()` from React Native, and all `dark:` variants update automatically.
 
 No custom ThemeProvider or context needed.
 
-### Theme colors
+### Dark mode styles
 
-Semantic colors are defined in `global.css` using CSS custom properties with light and dark variants:
+Use Tailwind's `dark:` variant for dark mode styles:
 
-```css
-@theme {
-  --color-primary: #3b82f6;
-  --color-background: #ffffff;
-  /* ... */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #60a5fa;
-    --color-background: #111827;
-    /* ... */
-  }
-}
+```tsx
+<View className="bg-white dark:bg-gray-900">
+  <Text className="text-gray-900 dark:text-white">
+    Adapts to system theme
+  </Text>
+</View>
 ```
 
-Use them in your components as regular Tailwind classes: `bg-primary`, `text-foreground`, `bg-background`, etc.
+### Safe area insets
+
+Use `pt-safe` and `pb-safe` utilities from `nativewind/theme` instead of `SafeAreaView`:
+
+```tsx
+<View className="flex-1 pt-safe pb-safe bg-white dark:bg-gray-900">
+  {/* content */}
+</View>
+```
 
 ### Toggling the theme
 
@@ -69,12 +67,12 @@ Or clone this repo:
 git clone https://github.com/nativewind/theme-toggle-v5.git
 cd theme-toggle-v5
 npm install
-npx expo start
+npx expo run:ios
 ```
 
 ## Stack
 
-- Expo SDK 53
+- Expo SDK 55
 - Nativewind v5 (preview)
 - Tailwind CSS v4
 - react-native-css
@@ -87,5 +85,5 @@ npx expo start
 | `tailwind.config.js` with `nativewind/preset` | `postcss.config.mjs` with `@tailwindcss/postcss` |
 | Custom `ThemeProvider` wrapping nativewind's `colorScheme.set()` | `Appearance.setColorScheme()` directly |
 | `useColorScheme()` from `nativewind` | `useColorScheme()` from `react-native` |
-| CSS variables in `:root` / `.dark` classes | CSS variables in `@theme` / `@media (prefers-color-scheme: dark)` |
+| CSS variables in `:root` / `.dark` classes | Standard Tailwind `dark:` variants |
 | Tailwind CSS v3 | Tailwind CSS v4 |
